@@ -1,6 +1,7 @@
 import Data.Text
 import Day1 qualified as D1
 import Day2 qualified as D2
+import Day3 qualified as D3
 import System.Environment
 import System.Exit
 import System.IO
@@ -12,6 +13,7 @@ readInput day = readFile ("./inputs/" ++ day ++ ".txt")
 chooseDay day
   | day == "1" = D1.part
   | day == "2" = D2.part
+  | day == "3" = D3.part
   | otherwise = error ("Not implemented day" ++ show otherwise)
 
 exit = exitSuccess
