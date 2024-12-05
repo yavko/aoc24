@@ -1,9 +1,11 @@
+{-# LANGUAGE Safe #-}
+
 module Day1 where
 
 import Data.Char
 import Data.List
 import Data.List.Split (splitOn)
-import Shared
+import Shared (AsInt (asInt), genDay)
 
 part = genDay part1 part2
 
@@ -16,7 +18,6 @@ sortPair (list1, list2) = (sort list1, sort list2)
 parseInput :: String -> ([Int], [Int])
 parseInput input = unzip . map (pairUp . map asInt . splitOn "   ") $ lines input
 
-part1 :: String -> Int
 part1 input = let (x, y) = sortPair $ parseInput input in sum $ zipWith (-) x y
 
 sumSimilarity :: [Int] -> [Int] -> Int -> Int

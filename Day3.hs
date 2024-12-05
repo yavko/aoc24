@@ -3,7 +3,7 @@ module Day3 where
 import Data.Char
 import Data.List
 import Data.List.Split (splitOn)
-import Shared
+import Shared (charIsDigit, genDay, takeBack)
 
 part :: String -> String -> Int
 part = genDay part1 part2

@@ -1,3 +1,5 @@
+{-# LANGUAGE Safe #-}
+
 module Shared where
 
 import Data.Char (digitToInt)
