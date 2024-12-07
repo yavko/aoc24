@@ -4,6 +4,7 @@ module Main (main) where
 import Day1 qualified as D1
 import Day2 qualified as D2
 import Day3 qualified as D3
+import Day7 qualified as D7
 import System.Environment ( getArgs )
 import System.Exit (exitSuccess, exitFailure)
 
@@ -18,6 +19,7 @@ chooseDay day
   | day == "1" = D1.part
   | day == "2" = D2.part
   | day == "3" = D3.part
+  | day == "7" = D7.part 
   | otherwise = error ("Day " ++ show day ++ " not implemented")
 
 parse :: [String] -> IO b
