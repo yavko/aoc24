@@ -29,6 +29,5 @@ x ||| y = intCat' (0 :: Int)
 part1 :: String -> Int
 part1 = generalSolution $ calculate 0 [(+), (*)]
 
--- TODO: replace concat func
 part2 :: String -> Int
 part2 = generalSolution $ calculate 0 [(+), (*), (|||)]
