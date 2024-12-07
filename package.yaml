@@ -1,0 +1,32 @@
+name:                aoc24
+version:             0.1.0.0
+#synopsis:
+#description:
+homepage:            https://github.com/yavko/aoc24#readme
+license:             MIT
+author:              Yavor Kolev
+maintainer:          yavornkolev@gmail.com
+copyright:           2024 Yavor Kolev
+category:            Misc
+extra-source-files:
+- README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+  - split
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+executables:
+  aoc24:
+    source-dirs:      src
+    main:             Main.hs

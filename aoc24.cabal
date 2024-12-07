@@ -1,0 +1,35 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           aoc24
+version:        0.1.0.0
+category:       Misc
+homepage:       https://github.com/yavko/aoc24#readme
+author:         Yavor Kolev
+maintainer:     yavornkolev@gmail.com
+copyright:      2024 Yavor Kolev
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+executable aoc24
+  main-is: Main.hs
+  other-modules:
+      Day1
+      Day2
+      Day3
+      Day7
+      Shared
+      Paths_aoc24
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , split
+  default-language: Haskell2010
