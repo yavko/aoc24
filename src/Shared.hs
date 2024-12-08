@@ -30,7 +30,6 @@ isSorted [_] = True
 isSorted (x : y : xs) = x <= y && isSorted (y : xs)
 
 -- https://wiki.haskell.org/How_to_work_on_lists#Deleting
-
 remByIdx :: [a] -> Int -> [a]
 remByIdx xs n = let (ys, zs) = splitAt n xs in ys ++ tail zs
 
