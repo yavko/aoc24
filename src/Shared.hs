@@ -15,8 +15,7 @@ instance (a ~ Char) => AsInt [a] where
   asInt = read
 
 instance AsInt Bool where
-  asInt True = 1
-  asInt False = 0
+  asInt = fromEnum
 
 instance AsInt Char where
   asInt = digitToInt
