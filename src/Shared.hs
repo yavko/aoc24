@@ -15,8 +15,7 @@ instance (a ~ Char) => AsInt [a] where
   asInt = read
 
 instance AsInt Bool where
-  asInt True = 1
-  asInt False = 0
+  asInt = fromEnum
 
 instance AsInt Char where
   asInt = digitToInt
@@ -34,9 +33,8 @@ isSorted (x : y : xs) = x <= y && isSorted (y : xs)
 remByIdx :: [a] -> Int -> [a]
 remByIdx xs n = let (ys, zs) = splitAt n xs in ys ++ tail zs
 
--- https://stackoverflow.com/questions/10592920/haskell-flatten-binary-tree
 data BTree a = Node (BTree a) a (BTree a) | Leaf a
 
 leaves :: BTree a -> [a]
-leaves (Node left mid right) = leaves left ++ leaves right
+leaves (Node left _ right) = leaves left ++ leaves right
 leaves (Leaf val) = [val]
