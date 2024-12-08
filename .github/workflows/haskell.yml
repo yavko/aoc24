@@ -1,0 +1,44 @@
+name: Haskell Stack Build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-haskell@v1
+      with:
+        ghc-version: '8.10.3'
+        cabal-version: '3.2'
+
+    - name: Use Cache
+      uses: actions/cache@v4
+      with:
+        key: ${{ matrix.os }}_${{ env.snapshot }}_${{ github.head_ref }}
+        restore-keys: |
+          ${{ matrix.os }}_${{ env.snapshot }}_${{ github.head_ref }}
+          ${{ matrix.os }}_${{ env.snapshot }}_${{ github.base_ref }}
+          ${{ matrix.os }}_${{ env.snapshot }}_
+          ${{ matrix.os }}_${{ env.snapshot }}
+        path: |
+          ${{ steps.setup-haskell-stack.outputs.stack-root }}
+          .stack-work
+          */.stack-work
+
+    - uses: haskell-actions/setup@v2
+      with:
+        ghc-version: '8.8.4' # Exact version of ghc to use
+        # cabal-version: 'latest'. Omitted, but defaults to 'latest'
+        enable-stack: true
+        stack-version: 'latest'
+    - run: stack build
